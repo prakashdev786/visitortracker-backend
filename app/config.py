@@ -27,8 +27,12 @@ class StagingConfig(Config):
     
 class ProductionConfig(Config):
     DEBUG = False
-    SERVER_NAME = os.getenv("SERVER_NAME")
     SQLALCHEMY_DATABASE_URI = os.getenv("PRODUCTION_DATABASE_URL")
+    MAIL_SERVER = 'smtp.gmail.com'
+    MAIL_PORT = 587
+    MAIL_USE_TLS = True
+    MAIL_USERNAME = 'prakash950288@gmail.com'  
+    MAIL_PASSWORD = os.getenv('MAILPASS')
 
 config = {
     "development": DevelopmentConfig,
