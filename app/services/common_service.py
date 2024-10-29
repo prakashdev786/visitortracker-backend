@@ -290,7 +290,7 @@ def preview_report_template_service(data):
 
             populated_html = render_template_string(value, **context)
 
-            pdf_filename = f"{menu}_report_{datetime.now(timezone.utc)}.pdf"
+            pdf_filename = f'{menu}_report_{datetime.now(timezone.utc)}.pdf'
             pdf_buffer = BytesIO()
 
             # Convert HTML to PDF
@@ -316,7 +316,7 @@ def create_menu_service(data):
         try:
             validated_data = MenuUpdateSchema(**data)
         except ValidationError as e:
-            return None, "ValidationError", f"Validation error: {e}"
+            return None, "ValidationError", f'Validation error: {e}'
 
         if 'id' in data and data['id']:
 

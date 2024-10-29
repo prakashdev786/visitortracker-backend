@@ -43,7 +43,7 @@ def save_image(image_data, fileName=None, folderName=None):
     image_data.save(filepath)
 
 
-    return f"{folderName}/{filename}" if folderName else f"{filename}"
+    return f'{folderName}/{filename}' if folderName else f'{filename}'
 
 
 class DictToObject:
