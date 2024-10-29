@@ -8,8 +8,9 @@ from sqlalchemy import MetaData
 from flask_mail import Mail
 import os
 
-metadata = MetaData(schema='VisitorTrack')
-db = SQLAlchemy(metadata=metadata)
+# metadata = MetaData(schema='VisitorTrack')
+# db = SQLAlchemy(metadata=metadata)
+db = SQLAlchemy()
 mail = Mail()
 
 
