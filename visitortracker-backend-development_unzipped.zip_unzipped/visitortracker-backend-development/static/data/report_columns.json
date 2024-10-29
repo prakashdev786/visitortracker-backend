@@ -1,0 +1,263 @@
+[
+    {
+        "label": "EmployeeCode",
+        "value": "{{EmployeeCode}}",
+        "ref_table": "tbl_master_EmployeeMain",
+        "defaultValue": "Prakash"
+    },
+    {
+        "label": "AlternateCode",
+        "value": "{{AlternateCode}}",
+        "ref_table": "tbl_master_EmployeeMain",
+        "defaultValue": "Alt123"
+    },
+    {
+        "label": "ShortName",
+        "value": "{{ShortName}}",
+        "ref_table": "tbl_master_EmployeeMain",
+        "defaultValue": "PK"
+    },
+    {
+        "label": "FirstName",
+        "value": "{{FirstName}}",
+        "ref_table": "tbl_master_EmployeeMain",
+        "defaultValue": "Prakash"
+    },
+    {
+        "label": "MiddleName",
+        "value": "{{MiddleName}}",
+        "ref_table": "tbl_master_EmployeeMain",
+        "defaultValue": "Kumar"
+    },
+    {
+        "label": "LastName",
+        "value": "{{LastName}}",
+        "ref_table": "tbl_master_EmployeeMain",
+        "defaultValue": "Sharma"
+    },
+    {
+        "label": "DateofBirth",
+        "value": "{{DateofBirth}}",
+        "ref_table": "tbl_master_EmployeeMain",
+        "defaultValue": "1990-01-01"
+    },
+    {
+        "label": "DateofJoining",
+        "value": "{{DateofJoining}}",
+        "ref_table": "tbl_master_EmployeeMain",
+        "defaultValue": "2020-01-01"
+    },
+    {
+        "label": "Company",
+        "value": "{{Company}}",
+        "ref_table": "tbl_master_EmployeeMain",
+        "defaultValue": "ABC Corp"
+    },
+    {
+        "label": "Department",
+        "value": "{{Department}}",
+        "ref_table": "tbl_master_EmployeeMain",
+        "defaultValue": "HR"
+    },
+    {
+        "label": "Designation",
+        "value": "{{Designation}}",
+        "ref_table": "tbl_master_EmployeeMain",
+        "defaultValue": "Manager"
+    },
+    {
+        "label": "Category",
+        "value": "{{Category}}",
+        "ref_table": "tbl_master_EmployeeMain",
+        "defaultValue": "Permanent"
+    },
+    {
+        "label": "EmailID",
+        "value": "{{EmailID}}",
+        "ref_table": "tbl_master_EmployeeMain",
+        "defaultValue": "prakash@example.com"
+    },
+    {
+        "label": "ContactNo",
+        "value": "{{ContactNo}}",
+        "ref_table": "tbl_master_EmployeeMain",
+        "defaultValue": "9876543210"
+    },
+    {
+        "label": "VisitorName",
+        "value": "{{VisitorName}}",
+        "ref_table": "vis_tbl_master_Visitors",
+        "defaultValue": "John Doe"
+    },
+    {
+        "label": "VisitorCategory",
+        "value": "{{VisitorCategory}}",
+        "ref_table": "vis_tbl_master_Visitors",
+        "defaultValue": "Guest"
+    },
+    {
+        "label": "MobileNumber",
+        "value": "{{MobileNumber}}",
+        "ref_table": "vis_tbl_master_Visitors",
+        "defaultValue": "9999999999"
+    },
+    {
+        "label": "EmailID",
+        "value": "{{EmailID}}",
+        "ref_table": "vis_tbl_master_Visitors",
+        "defaultValue": "johndoe@example.com"
+    },
+    {
+        "label": "FirstVisitDate",
+        "value": "{{FirstVisitDate}}",
+        "ref_table": "vis_tbl_master_Visitors",
+        "defaultValue": "2023-01-01"
+    },
+    {
+        "label": "LastVisitDate",
+        "value": "{{LastVisitDate}}",
+        "ref_table": "vis_tbl_master_Visitors",
+        "defaultValue": "2023-12-31"
+    },
+    {
+        "label": "IDCardType",
+        "value": "{{IDCardType}}",
+        "ref_table": "vis_tbl_master_Visitors",
+        "defaultValue": "Passport"
+    },
+    {
+        "label": "IDCardNumber",
+        "value": "{{IDCardNumber}}",
+        "ref_table": "vis_tbl_master_Visitors",
+        "defaultValue": "P123456789"
+    },
+    {
+        "label": "createdAt",
+        "value": "{{createdAt}}",
+        "ref_table": "vis_tbl_master_Visitors",
+        "defaultValue": "2023-01-01T12:00:00Z"
+    },
+    {
+        "label": "updatedAt",
+        "value": "{{updatedAt}}",
+        "ref_table": "vis_tbl_master_Visitors",
+        "defaultValue": "2023-01-01T12:00:00Z"
+    },
+    {
+        "label": "AddressType",
+        "value": "{{AddressType}}",
+        "ref_table": "tbl_master_EmployeeAddress",
+        "defaultValue": "Permanent"
+    },
+    {
+        "label": "Mobile",
+        "value": "{{Mobile}}",
+        "ref_table": "tbl_master_EmployeeAddress",
+        "defaultValue": "8888888888"
+    },
+    {
+        "label": "Email",
+        "value": "{{Email}}",
+        "ref_table": "tbl_master_EmployeeAddress",
+        "defaultValue": "prakash_address@example.com"
+    },
+    {
+        "label": "IDCardImageName",
+        "value": "{{IDCardImageName}}",
+        "ref_table": "vis_tbl_trans_VistorLog24",
+        "defaultValue": "CompanyLogo.png"
+    },
+    {
+        "label": "VisitorID",
+        "value": "{{VisitorID}}",
+        "ref_table": "vis_tbl_trans_VistorLog24",
+        "defaultValue": "V12345"
+    },
+    {
+        "label": "CompanyID",
+        "value": "{{CompanyID}}",
+        "ref_table": "vis_tbl_trans_VistorLog24",
+        "defaultValue": "C123"
+    },
+    {
+        "label": "PassNumber",
+        "value": "{{PassNumber}}",
+        "ref_table": "vis_tbl_trans_VistorLog24",
+        "defaultValue": "P123"
+    },
+    {
+        "label": "PassDate",
+        "value": "{{PassDate}}",
+        "ref_table": "vis_tbl_trans_VistorLog24",
+        "defaultValue": "2024-01-01"
+    },
+    {
+        "label": "BadgeNumber",
+        "value": "{{BadgeNumber}}",
+        "ref_table": "vis_tbl_trans_VistorLog24",
+        "defaultValue": "B123"
+    },
+    {
+        "label": "VisCategory",
+        "value": "{{VisCategory}}",
+        "ref_table": "vis_tbl_trans_VistorLog24",
+        "defaultValue": "Regular"
+    },
+    {
+        "label": "VisTotal",
+        "value": "{{VisTotal}}",
+        "ref_table": "vis_tbl_trans_VistorLog24",
+        "defaultValue": "1"
+    },
+    {
+        "label": "VisPurpose",
+        "value": "{{VisPurpose}}",
+        "ref_table": "vis_tbl_trans_VistorLog24",
+        "defaultValue": "Visit"
+    },
+    {
+        "label": "VehicleNumber",
+        "value": "{{VehicleNumber}}",
+        "ref_table": "vis_tbl_trans_VistorLog24",
+        "defaultValue": "AB-1234"
+    },
+    {
+        "label": "VisAdditional",
+        "value": "<table><thead><tr><th><div>Visitor name</div></th><th><div>Mobile</div></th></tr></thead><tbody><!-- {%for item in VisAdditional%} --><tr><td><div>{{ item.visitor_name }}</div></td><td><div>{{ item.visitor_mobile }}</div></td></tr><!--{%endfor%} --></tbody></table>",
+        "ref_table": "vis_tbl_trans_VistorLog24",
+        "defaultValue": [
+            {
+                "visitor_name": "Alice",
+                "visitor_mobile": "1234567890"
+            },
+            {
+                "visitor_name": "Bob",
+                "visitor_mobile": "0987654321"
+            }
+        ]
+    },
+    {
+        "label": "ReturnableItems",
+        "value": "{{ReturnableItems}}",
+        "ref_table": "vis_tbl_trans_VistorLog24",
+        "defaultValue": "N/A"
+    },
+    {
+        "label": "VehicleNo",
+        "value": "{{VehicleNo}}",
+        "ref_table": "vis_tbl_trans_VistorLog24",
+        "defaultValue": "V123"
+    },
+    {
+        "label": "CreatedAt",
+        "value": "{{CreatedAt}}",
+        "ref_table": "vis_tbl_trans_VistorLog24",
+        "defaultValue": "2023-01-01 12:00:00"
+    },
+    {
+        "label": "UpdatedAt",
+        "value": "{{UpdatedAt}}",
+        "ref_table": "vis_tbl_trans_VistorLog24",
+        "defaultValue": "2023-01-01 12:00:00"
+    }
+]
