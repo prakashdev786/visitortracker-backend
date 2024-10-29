@@ -171,8 +171,8 @@ def create_visitorpass_service(data):
 
         # Handle image uploads
         unique_id = str(uuid.uuid4().hex)
-        visitor_image_path = save_image(data.get('VisitorImage'), f'{sanitized_pass_number}_{unique_id}_{data.get('VisitorImage').filename}', "VisitorFiles") if data.get('VisitorImage') else None
-        id_card_image_path = save_image(data.get('IDCardImage'), f'{sanitized_pass_number}_{unique_id}_{data.get('IDCardImage').filename}', "VisitorFiles") if data.get('IDCardImage') else None
+        visitor_image_path = save_image(data.get('VisitorImage'), f"{sanitized_pass_number}_{unique_id}_{data.get('VisitorImage').filename}", "VisitorFiles") if data.get('VisitorImage') else None
+        id_card_image_path = save_image(data.get('IDCardImage'), f"{sanitized_pass_number}_{unique_id}_{data.get('IDCardImage').filename}", "VisitorFiles") if data.get('IDCardImage') else None
 
         visitor_pass_log = VisitorsLog(
             IDCardImageName=id_card_image_path,
