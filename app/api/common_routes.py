@@ -1,4 +1,5 @@
 from flask import Blueprint,  jsonify
+from app.utils.jwt_decorator import token_required
 from app.controllers.common_controller import get_settings_by_userid, create_settings, create_employee_by_csv, create_employee, save_report_template, get_design_controller, preview_report_template, create_menu_controll, get_menus_control, get_menu_by_userid
 from ..utils.common_utils import get_request_data
 import json
@@ -75,6 +76,7 @@ def getAllMenu():
 
 
 @common_bp.route("/getMenuByUserId", methods=['GET'])
-def getMenuByUserId():
+@token_required
+def getMenuByUserId(current_user):
     data = get_request_data()
-    return get_menu_by_userid(data)
+    return get_menu_by_userid(current_user)

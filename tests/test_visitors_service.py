@@ -17,7 +17,7 @@ class TestVisitorServices(unittest.TestCase):
         """Tear down the test client and app context."""
         self.app_context.pop()
 
-    @patch('app.models.VisitorsMaster.query.all')
+    @patch('app.models.visitor_master.VisitorsMaster.query.all')
     def test_get_visitors_service_success(self, mock_visitors_all):
         # Mocking the result of VisitorsMaster.query.all
         mock_visitors_all.return_value = [
@@ -35,7 +35,7 @@ class TestVisitorServices(unittest.TestCase):
         # self.assertEqual(result[0]['name'], 'John Doe')
         self.assertEqual(message, None)
 
-    # @patch('app.models.VisitorsMaster.query.all')
+    # @patch('app.models.visitor_master.VisitorsMaster.query.all')
     # def test_get_visitors_service_no_data(self, mock_visitors_all):
     #     # Mocking the result when no data is found
     #     mock_visitors_all.return_value = []

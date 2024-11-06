@@ -43,7 +43,19 @@ def save_image(image_data, fileName=None, folderName=None):
     image_data.save(filepath)
 
 
-    return f'{folderName}/{filename}' if folderName else f'{filename}'
+    return f"{folderName}/{filename}" if folderName else f"{filename}"
+
+def remove_file(file_path):
+    base_folder = 'static/uploads'
+    new_file_path = os.path.join(base_folder, file_path)
+    if os.path.isfile(new_file_path):
+        try:
+            print(new_file_path, 'new_file_path')
+            os.remove(new_file_path)
+        except Exception as e:
+            print(f"Error removing file {new_file_path}: {str(e)}")
+    else:
+        print(f"File not found: {new_file_path}, cannot remove it.")
 
 
 class DictToObject:

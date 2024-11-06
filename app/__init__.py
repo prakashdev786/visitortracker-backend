@@ -4,13 +4,16 @@ from flask_migrate import Migrate
 from flask_cors import CORS
 from .config import config
 from .utils.error_handlers import register_error_handlers
+from .utils.logging_config import configure_logging 
 from sqlalchemy import MetaData
 from flask_mail import Mail
+from flask_jwt_extended import JWTManager
 import os
 
-# metadata = MetaData(schema='VisitorTrack')
+metadata = MetaData(schema='VisitorTrack')
 # db = SQLAlchemy(metadata=metadata)
 db = SQLAlchemy()
+jwt = JWTManager()
 mail = Mail()
 
 
@@ -28,8 +31,11 @@ def create_app(config_mode="development"):
     # Initialize extensions
     db.init_app(app)
     Migrate(app, db)
-
     mail.init_app(app)
+    jwt.init_app(app)
+    
+    # Configure logging
+    configure_logging(app)
 
     # Routes -> Register blueprints
     from app.api.user_routes import user_bp

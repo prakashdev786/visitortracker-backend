@@ -1,9 +1,8 @@
-from pydantic import BaseModel, validator, Field, field_validator
+from pydantic import BaseModel, model_validator, Field, field_validator,EmailStr
 from typing import Optional
 from datetime import datetime
 from app import db
-from app.models import SettingsMaster, EmployeeMain, EmployeeAddress, VisitorsLog, ReportDesignMaster, MenuMaster
-
+from app.models.menu_master import MenuMaster
 
 class MenuUpdateSchema(BaseModel):
     id: Optional[int] = None
@@ -53,3 +52,36 @@ class MenuUpdateSchema(BaseModel):
         "from_attributes": True
     }
 
+
+
+class UpdateTempVisitorSchema(BaseModel):
+    AppNumber:str = Field(..., min_length=1, description="Appointment number is required")  
+    VisitorName: str = Field(..., min_length=1, description="Visitor name is required")  
+    VisitorCategory: str = Field(None, max_length=100)
+    CompanyName: str = Field(None, max_length=100)
+    EmailId: EmailStr = Field(None)  
+    MobileNumber: str = Field(None,min_length=1)  
+    AddressLine1: str = Field(None, max_length=500)
+    AddressLine2: str = Field(None, max_length=500)
+    City: str = Field(None, max_length=100)
+    State: str = Field(None, max_length=100)
+    TelePhone: str = Field(None, max_length=20)
+    PinCode: str = Field(None, max_length=20)
+    Purpose: str = Field(None, max_length=500)
+
+    @model_validator(mode="before")
+    def check_required_fields(cls, values):
+        errors = {}
+        for field_name, field in cls.model_fields.items():
+            field_value = values.get(field.alias)
+            
+            if field.default is ... and (field_value is None or (isinstance(field_value, str) and not field_value.strip())):
+                errors[field.alias] = field.field_info.description            
+        
+        if errors:
+            raise ValueError(errors)
+        return values
+    
+    model_config = {
+        "from_attributes": True
+    }

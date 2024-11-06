@@ -1,33 +1,50 @@
-from app.models import User, EmployeeAddress
+from app.models.employee_address import EmployeeAddress
+from app.models.user import User
 from werkzeug.security import check_password_hash, generate_password_hash
 from sqlalchemy import text
 from flask_mail import Message
 from app import db, mail
+from flask_jwt_extended import create_access_token, create_refresh_token
 import string
 import random
 import json
 
 
+
 def login_user_service(data):
+    try:
+        username = data.get('UserName')
+        password = data.get('UPassword')
 
-    username = data.get('UserName')
-    password = data.get('UPassword')
+        if not username or not password:
+            return None, True, "Username and password are required"
 
-    if not username or not password:
-        return None, True, "Username and password are required"
+        user = User.query.filter_by(UserName=username).first()
 
-    user = User.query.filter_by(UserName=username).first()
+        # if not user or not check_password_hash(user.UPassword, password):
+        #     return None, "Invalid username or password"
+        if not user or not user.UPassword == password:
+            return None, True, "Invalid username or password"
+        
+       
+        # Generate access and refresh tokens
+        access_token = create_access_token(identity=user.id)
+        refresh_token = create_refresh_token(identity=user.id)
 
-    # if not user or not check_password_hash(user.UPassword, password):
-    #     return None, "Invalid username or password"
-    if not user or not user.UPassword == password:
-        return None, True, "Invalid username or password"
+        return {
+            'token': access_token,
+            'user':{
+                'id': user.id,
+                'UserName': user.UserName,
+                # 'AccessControl': json.dumps(user.AccessControl, sort_keys=False),
+                'AccessControl': user.AccessControl,
+              }
 
-    return {
-        'id': user.id,
-        'UserName': user.UserName,
-        'AccessControl': json.dumps(user.AccessControl, sort_keys=False),
-    }, None, None
+        }, None, None
+    
+    except Exception as err:
+        db.session.rollback()
+        return None, str(err), 'Internal Server Error'
 
 
 def generate_random_password(length=8):

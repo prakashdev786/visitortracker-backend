@@ -14,7 +14,7 @@ class UserServiceTestCase(unittest.TestCase):
         """Tear down the test client and application context."""
         self.app_context.pop()  
 
-    @patch('app.models.User.query')
+    @patch('app.models.user.User.query')
     def test_login_user_service_success(self, mock_query):
         """Test successful login user service."""
         # Set up mock return value
@@ -29,7 +29,7 @@ class UserServiceTestCase(unittest.TestCase):
         self.assertIsNone(error)
         self.assertIsNone(message)
 
-    @patch('app.models.User.query')
+    @patch('app.models.user.User.query')
     def test_login_user_service_failure(self, mock_query):
         """Test login user service failure due to invalid credentials."""
         mock_query.filter_by.return_value.first.return_value = None
@@ -41,7 +41,7 @@ class UserServiceTestCase(unittest.TestCase):
         self.assertTrue(error)
         self.assertEqual(message, "Invalid username or password")
 
-    @patch('app.models.User.query')
+    @patch('app.models.user.User.query')
     def test_reset_password_service_success(self, mock_query):
         """Test successful reset password service."""
         mock_user = type('User', (object,), {'EmployeeCode': '950288', 'UPassword': 'seb0fvvg'})
@@ -55,7 +55,7 @@ class UserServiceTestCase(unittest.TestCase):
             self.assertIsNone(error)
             self.assertEqual(message, 'Password reset successfully. Please check your mail.')
 
-    @patch('app.models.User.query')
+    @patch('app.models.user.User.query')
     def test_reset_password_service_user_not_found(self, mock_query):
         """Test reset password service user not found."""
         mock_query.filter_by.return_value.first.return_value = None

@@ -1,4 +1,11 @@
-from app.models import SettingsMaster, EmployeeMain, EmployeeAddress, VisitorsLog, ReportDesignMaster, MenuMaster, User
+from app.models.report_designer import ReportDesignMaster
+from app.models.employee_address import EmployeeAddress
+from app.models.employee_main import EmployeeMain
+from app.models.settings_master import SettingsMaster
+from app.models.visitors_log import VisitorsLog
+from app.models.menu_master import MenuMaster
+from app.models.user import User
+
 from app.validator.common_schema import MenuUpdateSchema
 from pydantic import BaseModel, ValidationError
 from sqlalchemy import text
@@ -290,7 +297,7 @@ def preview_report_template_service(data):
 
             populated_html = render_template_string(value, **context)
 
-            pdf_filename = f'{menu}_report_{datetime.now(timezone.utc)}.pdf'
+            pdf_filename = f"{menu}_report_{datetime.now(timezone.utc)}.pdf"
             pdf_buffer = BytesIO()
 
             # Convert HTML to PDF
@@ -316,7 +323,7 @@ def create_menu_service(data):
         try:
             validated_data = MenuUpdateSchema(**data)
         except ValidationError as e:
-            return None, "ValidationError", f'Validation error: {e}'
+            return None, "ValidationError", f"Validation error: {e}"
 
         if 'id' in data and data['id']:
 
@@ -404,7 +411,9 @@ def get_menus_service(data):
 
 
 def get_menu_by_userid_service(data):
-    user_id = request.args.get('user_id', type=int)
+    # user_id = request.args.get('user_id', type=int)
+    user_id = data
+    
     try:
         if user_id:
             user = User.query.filter_by(id=user_id).first()

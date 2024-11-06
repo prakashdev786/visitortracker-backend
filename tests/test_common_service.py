@@ -4,7 +4,8 @@ from app.services.common_service import (
     get_settings_by_userid_service, create_employee_by_csv_service,
     create_settings_service, preview_report_template_service
 )
-from app.models import User, SettingsMaster, EmployeeMain, EmployeeAddress
+
+from app.models.user import User
 from io import BytesIO
 from app import create_app, db
 
@@ -22,7 +23,7 @@ class CommonServiceTestCase(unittest.TestCase):
         """Tear down the test client and app context."""
         self.app_context.pop()
 
-    @patch('app.models.SettingsMaster.query.filter_by')
+    @patch('app.models.settings_master.SettingsMaster.query.filter_by')
     def test_get_settings_by_userid_service_success(self, mock_query):
         """Test get_settings_by_userid_service for successful case."""
         # Mock the return value of the query
@@ -45,8 +46,8 @@ class CommonServiceTestCase(unittest.TestCase):
         self.assertEqual(message, "No file provided")
 
     @patch('pandas.read_csv')
-    @patch('app.models.EmployeeMain.query.filter_by')
-    @patch('app.models.EmployeeAddress.query.filter_by')
+    @patch('app.models.employee_main.EmployeeMain.query.filter_by')
+    @patch('app.models.employee_address.EmployeeAddress.query.filter_by')
     def test_create_employee_by_csv_service_success(self, mock_emp_query, mock_addr_query, mock_read_csv):
         """Test create_employee_by_csv_service for success."""
         # Create a mock DataFrame
